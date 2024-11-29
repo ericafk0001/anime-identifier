@@ -8,20 +8,20 @@
   </head>
   <body>
     <div id="particles-js"></div>
-    <h1>Anime Identifier</h1>
+    <h1>Anime Lookup</h1>
     <p>
       Upload an screenshot from an anime to know what anime, scene, and episode
       it is from.
     </p>
     <p>File Size limited to 25MB.</p>
-    <form
-      action="https://api.trace.moe/search"
-      method="POST"
-      enctype="multipart/form-data"
-    >
-      <input type="file" name="image" />
+    <form id="form">
+      <input type="file" name="image" id="imageInput" />
       <input type="submit" value="Submit" />
     </form>
+    <div id="result-container">
+      <h2 id="result-name">Anime Name:</h2>
+    </div>
+
     <script src="particles.js"></script>
     <script src="script.js"></script>
   </body>
