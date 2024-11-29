@@ -7,13 +7,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <h1>Anime Identifier</h1>
+    <p>
+      Upload an screenshot from an anime to know what anime, scene, and episode
+      it is from.
+    </p>
+    <p>File Size limited to 25MB.</p>
     <form
       action="https://api.trace.moe/search"
       method="POST"
       enctype="multipart/form-data"
     >
       <input type="file" name="image" />
-      <input type="submit" />
+      <input type="submit" value="Submit" />
     </form>
     <script src="script.js"></script>
   </body>
