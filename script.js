@@ -21,8 +21,10 @@ document.getElementById("form").addEventListener("submit", async (event) => {
     });
 
     const result = await response.json();
+    const resultEp = result.result[0];
+    const resultImage = resultEp.image;
     console.log(result);
-    resultName.textContent = result;
+    resultName.textContent = `Anime Name: ${resultEp.filename}`;
   } else {
     console.error("Error. Did you upload an image?");
   }
