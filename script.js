@@ -9,7 +9,7 @@ document.getElementById("form").addEventListener("submit", async (event) => {
   const loader = document.getElementById("loader-container");
   loader.style.display = "flex";
 
-  const imageInput = document.getElementById("imageInput");
+  const imageInput = document.getElementById("image-input");
   const imageBlob = imageInput.files[0]; // image blob
 
   if (imageBlob) {
@@ -32,11 +32,11 @@ document.getElementById("form").addEventListener("submit", async (event) => {
     const resultSimilarity = result.result[0].similarity;
     const resultImg = result.result[0].video;
 
-    const anilistResponse = await fetch('https://graphql.anilist.co', {
-      method: 'POST',
+    const anilistResponse = await fetch("https://graphql.anilist.co", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify({
         query: `
@@ -52,14 +52,17 @@ document.getElementById("form").addEventListener("submit", async (event) => {
           }
         `,
         variables: {
-          id: resultAnime.anilist
-        }
-      })
+          id: resultAnime.anilist,
+        },
+      }),
     });
 
     const anilistResult = await anilistResponse.json();
     // use english title if available, else use romaji, else use native
-    const animeTitle = anilistResult.data.Media.title.english || anilistResult.data.Media.title.romaji || anilistResult.data.Media.title.native;
+    const animeTitle =
+      anilistResult.data.Media.title.english ||
+      anilistResult.data.Media.title.romaji ||
+      anilistResult.data.Media.title.native;
 
     resultName.textContent = `Anime Name: ${animeTitle}`;
     resultEpisode.textContent = `Episode: ${resultAnime.episode}`;
