@@ -3,13 +3,23 @@ particlesJS.load("particles-js", "particles.json", function () {
   console.log("callback - particles.js config loaded");
 });
 
+const imageInput = document.getElementById("image-input");
+const fileNameDisplay = document.getElementById("file-name");
+
+imageInput.addEventListener("change", function () {
+  if (imageInput.files.length > 0) {
+    fileNameDisplay.textContent = `Selected file: ${imageInput.files[0].name}`;
+  } else {
+    fileNameDisplay.textContent = "No file chosen";
+  }
+});
+
 document.getElementById("form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const loader = document.getElementById("loader-container");
   loader.style.display = "flex";
 
-  const imageInput = document.getElementById("image-input");
   const imageBlob = imageInput.files[0]; // image blob
 
   if (imageBlob) {
@@ -73,7 +83,7 @@ document.getElementById("form").addEventListener("submit", async (event) => {
     resultImage.style.display = "block";
     resultCard.style.display = "flex";
   } else {
-    console.log("a problem occured");
+    console.error("a problem occured");
     alert("Error. Did you upload an image?");
   }
   loader.style.display = "none";

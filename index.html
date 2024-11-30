@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="no-referrer" />
     <title>Anime Identifier</title>
+    <script
+      src="https://kit.fontawesome.com/480c99c053.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -21,6 +25,10 @@
       </p>
       <p id="file-limit">File Size limited to 25MB.</p>
       <form id="form">
+        <label for="image-input" class="file-btn">
+          Choose File <i class="fa-solid fa-upload"></i
+        ></label>
+        <span id="file-name">No file chosen</span>
         <input type="file" name="image" id="image-input" />
         <input type="submit" value="Submit" id="submit-btn" />
       </form>
