@@ -80,6 +80,7 @@ body {
 
 #result-name {
   font-size: 24px;
+  margin-bottom: 7px;
 }
 
 #result-episode,
@@ -87,4 +88,10 @@ body {
 #result-image-p {
   font-weight: 600;
   font-size: 16px;
+  margin-bottom: 7px;
+}
+
+#result-image {
+  border-radius: 6px;
+  box-shadow: 0 0px 20px rgb(2, 2, 2);
 }
