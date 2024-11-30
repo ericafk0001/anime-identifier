@@ -7,7 +7,7 @@ document.getElementById("form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const imageInput = document.getElementById("imageInput");
-  const imageBlob = imageInput.files[0]; // Get the selected file
+  const imageBlob = imageInput.files[0]; // image blob
 
   const resultName = document.getElementById("result-name");
   const resultImage = document.getElementById("result-image");
