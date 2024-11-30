@@ -22,6 +22,7 @@ document.getElementById("form").addEventListener("submit", async (event) => {
     const resultImage = document.getElementById("result-image");
     const resultEpisode = document.getElementById("result-episode");
     const resultSim = document.getElementById("result-sim");
+    const resultCard = document.getElementById("result-card");
 
     const result = await response.json();
     const resultAnime = result.result[0];
@@ -36,6 +37,7 @@ document.getElementById("form").addEventListener("submit", async (event) => {
     )}%`;
     resultImage.src = resultImg;
     resultImage.style.display = "block";
+    resultCard.style.display = "flex";
   } else {
     console.log("a problem occured");
     alert("Error. Did you upload an image?");
