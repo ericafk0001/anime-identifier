@@ -40,6 +40,45 @@ body {
   display: none;
 }
 
+#submit-btn {
+  font-size: 18px;
+  padding: 12px 32px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  background-color: rgba(111, 76, 255, 0.15);
+  border: 1px solid rgba(111, 76, 255, 0.25);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#submit-btn:hover {
+  background-color: rgba(111, 76, 255, 0.35);
+  border: 1px solid rgba(111, 76, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#image-input {
+  display: inline-block;
+  padding: 0.5em 1.7em;
+  margin: 0 0.1em 0.1em 0;
+  border: 0.16em solid rgb(255, 255, 255);
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+  text-align: center;
+  transition: all 0.2s;
+}
+
+#image-input:hover {
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+
 #card {
   display: flex;
   align-items: center;
