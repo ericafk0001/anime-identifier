@@ -9,9 +9,6 @@ document.getElementById("form").addEventListener("submit", async (event) => {
   const imageInput = document.getElementById("imageInput");
   const imageBlob = imageInput.files[0]; // image blob
 
-  const resultName = document.getElementById("result-name");
-  const resultImage = document.getElementById("result-image");
-
   if (imageBlob) {
     const formData = new FormData();
     formData.append("image", imageBlob);
@@ -21,14 +18,26 @@ document.getElementById("form").addEventListener("submit", async (event) => {
       body: formData,
     });
 
+    const resultName = document.getElementById("result-name");
+    const resultImage = document.getElementById("result-image");
+    const resultEpisode = document.getElementById("result-episode");
+    const resultSim = document.getElementById("result-sim");
+
     const result = await response.json();
-    const resultEp = result.result[0];
-    const resultImg = result.result[0].image;
+    const resultAnime = result.result[0];
+    const resultSimilarity = result.result[0].similarity;
+    const resultImg = result.result[0].video;
 
     console.log(result);
-    resultName.textContent = `Anime Name: ${resultEp.filename}`;
+    resultName.textContent = `Anime Name: ${resultAnime.filename}`;
+    resultEpisode.textContent = `Episode: ${resultAnime.episode}`;
+    resultSim.textContent = `Similarity: ${(resultSimilarity * 100).toFixed(
+      1
+    )}%`;
     resultImage.src = resultImg;
+    resultImage.style.display = "block";
   } else {
-    console.error("Error. Did you upload an image?");
+    console.log("a problem occured");
+    alert("Error. Did you upload an image?");
   }
 });
