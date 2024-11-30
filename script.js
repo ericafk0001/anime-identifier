@@ -6,6 +6,9 @@ particlesJS.load("particles-js", "particles.json", function () {
 document.getElementById("form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
+  const loader = document.getElementById("loader-container");
+  loader.style.display = "flex";
+
   const imageInput = document.getElementById("imageInput");
   const imageBlob = imageInput.files[0]; // image blob
 
@@ -70,4 +73,5 @@ document.getElementById("form").addEventListener("submit", async (event) => {
     console.log("a problem occured");
     alert("Error. Did you upload an image?");
   }
+  loader.style.display = "none";
 });
