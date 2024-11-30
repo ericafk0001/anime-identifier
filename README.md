@@ -71,4 +71,4 @@ This process seamlessly integrates both image recognition and detailed anime met
 ## Demo
 
 [website demo](https://ericafk0001.github.io/anime-identifier/) |
-[video demo](https://youtu.be/8hRi7gEnDJs)
+[video demo](https://youtu.be/hIUOM-R9Jw8)
