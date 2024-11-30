@@ -32,8 +32,36 @@ document.getElementById("form").addEventListener("submit", async (event) => {
     const resultSimilarity = result.result[0].similarity;
     const resultImg = result.result[0].video;
 
-    console.log(result);
-    resultName.textContent = `Anime Name: ${resultAnime.filename}`;
+    const anilistResponse = await fetch('https://graphql.anilist.co', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        query: `
+          query ($id: Int) {
+            Media (id: $id, type: ANIME) {
+              id
+              title {
+                romaji
+                english
+                native
+              }
+            }
+          }
+        `,
+        variables: {
+          id: resultAnime.anilist
+        }
+      })
+    });
+
+    const anilistResult = await anilistResponse.json();
+    // use english title if available, else use romaji, else use native
+    const animeTitle = anilistResult.data.Media.title.english || anilistResult.data.Media.title.romaji || anilistResult.data.Media.title.native;
+
+    resultName.textContent = `Anime Name: ${animeTitle}`;
     resultEpisode.textContent = `Episode: ${resultAnime.episode}`;
     resultSim.textContent = `Similarity: ${(resultSimilarity * 100).toFixed(
       1
