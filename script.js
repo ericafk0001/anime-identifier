@@ -10,6 +10,7 @@ document.getElementById("form").addEventListener("submit", async (event) => {
   const imageBlob = imageInput.files[0]; // Get the selected file
 
   const resultName = document.getElementById("result-name");
+  const resultImage = document.getElementById("result-image");
 
   if (imageBlob) {
     const formData = new FormData();
@@ -22,9 +23,11 @@ document.getElementById("form").addEventListener("submit", async (event) => {
 
     const result = await response.json();
     const resultEp = result.result[0];
-    const resultImage = resultEp.image;
+    const resultImg = result.result[0].image;
+
     console.log(result);
     resultName.textContent = `Anime Name: ${resultEp.filename}`;
+    resultImage.src = resultImg;
   } else {
     console.error("Error. Did you upload an image?");
   }
